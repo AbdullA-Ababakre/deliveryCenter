@@ -1,0 +1,1 @@
+"/Applications/wechatwebdevtools.app/Contents/MacOS/cli" cloud functions deploy --e cloud1-2gwp6tvi4796d170 --n quickstartFunctions --r --project "/Users/bytedance/Desktop/delieveryCenter" --report_start --report
