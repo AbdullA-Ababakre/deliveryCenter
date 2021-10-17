@@ -8,7 +8,7 @@ const _ = db.command
 Page({
   data: {
     video: {
-      poster: "https://tcb-1251009918.cos.ap-guangzhou.myqcloud.com/demo/video.png",
+      poster: "https://636c-cloud1-2gwp6tvi4796d170-1307772281.tcb.qcloud.la/poster/1.jpeg?sign=fc95655a0964f256fd9f0a44c83de0ce&t=1634460701",
       src: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
     },
     controls: true,
@@ -22,8 +22,10 @@ Page({
       tel: null,
       address: null,
       wechat: null,
+      code: null
     },
-    contents: "深圳市南山区粤海大厦A座1903"
+    contentTel: "17724604801",
+    contents: "广东省深圳市南山区粤海大厦A座1903"
   },
   onLoad() {
     this.getData();
@@ -57,6 +59,7 @@ Page({
   },
 
   copyText: function (e) {
+    console.log("eeee", e);
     wx.setClipboardData({
       data: e.currentTarget.dataset.text,
       success: function (res) {
@@ -71,12 +74,12 @@ Page({
     })
   },
 
-
   inputSubmit: async function (e) {
-    // debugger;
+    //1.校验数据
     const val = e.detail.value;
-    const { userName, tel, address, wechat } = val;
-    if (!userName || !tel || !address || !wechat) {
+    console.log("val", val);
+    const { userName, tel, address, wechat, code } = val;
+    if (!userName || !tel || !address || !wechat || !code) {
       wx.showToast({
         title: '请输入完整信息',
         icon: 'none',
@@ -87,9 +90,9 @@ Page({
     }
 
 
-    //1.校验数据
+
     //2.如果改用户已经填写过则修改 否则提交
-    if (this.data.userData.userName && this.data.userData.tel && this.data.userData.wechat && this.data.userData.address ) {
+    if (this.data.userData.userName && this.data.userData.tel && this.data.userData.wechat && this.data.userData.address && this.data.userData.code) {
       //用户已经提交过数据
       wx.showLoading({
         title: '加载中',
@@ -100,7 +103,7 @@ Page({
         })
         .update({
           data: {
-            userName, tel, address, wechat
+            userName, tel, address, wechat, code
           },
           success: function (res) {
             wx.hideLoading();
@@ -117,13 +120,12 @@ Page({
       wx.showLoading({
         title: '加载中',
       });
-      console.log("第一次提交",userName, tel, address, wechat);
       const result = await db.collection('user').add({
         data: {
-          userName, tel, address, wechat
+          userName, tel, address, wechat, code
         },
         success: function (res) {
-          console.log("success",res);
+          console.log("success", res);
           wx.hideLoading();
           wx.showToast({
             title: '提交成功',
@@ -134,13 +136,18 @@ Page({
         }
       })
     }
-
-
-
-
-
-
-
-    console.log('提交的数据信息:', e.detail.value)
   },
+
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '快递中转转',
+      path: '/pages/index'
+    }
+  }
+
+
 })

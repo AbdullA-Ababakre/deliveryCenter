@@ -1,19 +1,22 @@
-.page{
-    height:100%;
-    width:100%;
+.page {
+  height: 100%;
+  width: 100%;
 }
 
-.copyBtn{
-    width:90%;
-    margin-top:10px;
-    margin-bottom:10px;
-    text-align:center;
+.copyBtn {
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: burlywood;
+  color: white;
+  border-radius: 98rpx;
 }
 
-.weui-label{
-    width:4.1em;
+.weui-label {
+  width: 4.1em;
 }
 
-.video{
-    width:100%;
+.video {
+  width: 100%;
 }

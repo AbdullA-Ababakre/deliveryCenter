@@ -1,0 +1,5 @@
+<view class='imagesize'>
+  <image bindtap="previewImage" src="{{imgSrc}}" mode="widthFix">
+  </image>
+</view>
+<button class="btn" bindtap="saveImage">点击保存客服微信</button>
