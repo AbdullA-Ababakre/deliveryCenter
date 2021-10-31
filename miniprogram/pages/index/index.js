@@ -9,12 +9,12 @@ Page({
   data: {
     video: {
       poster: "https://636c-cloud1-2gwp6tvi4796d170-1307772281.tcb.qcloud.la/poster/1.jpeg?sign=fc95655a0964f256fd9f0a44c83de0ce&t=1634460701",
-      src: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
+      src: 'https://636c-cloud1-6g9zd57b7c9062bf-1308051702.tcb.qcloud.la/video/end.mp4?sign=227c6dcca74fd5f932052ea4a62e48a8&t=1635641065',
     },
     controls: true,
     showprogress: true,
     loop: true,
-    autoplay: false,
+    autoplay: true,
     muted: false,
     openId: null,
     userData: {
@@ -108,11 +108,20 @@ Page({
           success: function (res) {
             wx.hideLoading();
             wx.showToast({
-              title: '提交成功',
+              title: '提交成功,请添加客服微信!',
               icon: 'success',
-              duration: 1500,
+              duration: 2500,
               mask: true,
             })
+            wx.switchTab({
+              url: '/pages/mine/index',
+              success: (result) => {
+                
+              },
+              fail: () => {},
+              complete: () => {}
+            });
+              
           }
         })
     } else {

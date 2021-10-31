@@ -7,12 +7,12 @@ const _ = db.command
 
 Page({
   data: {
-    imgSrc: "https://636c-cloud1-2gwp6tvi4796d170-1307772281.tcb.qcloud.la/qrcode/2.png?sign=24ac18f6a226ccf3988821f955b406c1&t=1634115461"
+    imgSrc: "https://636c-cloud1-6g9zd57b7c9062bf-1308051702.tcb.qcloud.la/image/qrcode.png?sign=a7209f685d804d9c2811b66ab083d685&t=1635641230"
   },
   previewImage(){
     wx.previewImage({
       current: this.data.imgSrc, // 当前显示图片的http链接
-      urls: ["https://636c-cloud1-2gwp6tvi4796d170-1307772281.tcb.qcloud.la/qrcode/2.png?sign=24ac18f6a226ccf3988821f955b406c1&t=1634115461"] // 需要预览的图片http链接列表
+      urls: ["https://636c-cloud1-6g9zd57b7c9062bf-1308051702.tcb.qcloud.la/image/qrcode.png?sign=a7209f685d804d9c2811b66ab083d685&t=1635641230"] // 需要预览的图片http链接列表
     })
   },
   saveImage() {

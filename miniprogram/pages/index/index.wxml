@@ -17,6 +17,7 @@
 							<input value="{{userData.userName}}" name="userName" class="weui-input" placeholder="填写收件人姓名"
 								placeholder-class="weui-input__placeholder" />
 						</view>
+						
 					</view>
 					<view class="weui-cell weui-cell_active">
 						<view class="weui-cell__hd">
@@ -62,7 +63,7 @@
 		</view>
 		<view class="weui-form__extra-area">
 			<view class="weui-footer">
-				<view class="weui-footer__text">Copyright © Khan Co.</view>
+				<view class="weui-footer__text">2021©深圳科荔科技有限公司</view>
 			</view>
 		</view>
 	</form>
