@@ -25,7 +25,7 @@ Page({
       code: null
     },
     contentTel: "17724604801",
-    contents: "广东省深圳市南山区粤海大厦A座1903"
+    contents: "深圳市罗湖区华丽花园日华阁一楼中通快递"
   },
   onLoad() {
     this.getData();
